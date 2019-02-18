@@ -8,3 +8,8 @@ export enum Avis {
     AIMER,
     DéTESTER
 }
+
+export interface Vote {
+    collegue: Collegue,
+    avis: Avis
+}

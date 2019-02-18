@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Collegue, Avis } from '../models'
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-collegue',
@@ -13,23 +14,16 @@ export class CollegueComponent implements OnInit {
   likeActif = true;
   unlikeActif = true;
 
-  constructor() { }
+  constructor(private _data:DataService) { }
 
   ngOnInit() {
-    this.disableButtons();
+    this.likeActif = this._data.disableButtons(this.collegue, "like");
+    this.unlikeActif = this._data.disableButtons(this.collegue, "unlike");
   }
 
   onVoted(avis: Avis) {
-    if (avis == Avis.AIMER) {
-      this.collegue.score++;
-    } else if (avis == Avis.DéTESTER) {
-      this.collegue.score--;
-    }
-    this.disableButtons();
-  }
-
-  disableButtons(){
-    this.likeActif = this.collegue.score < 10;
-    this.unlikeActif = this.collegue.score > -10;
+    this._data.donnerUnAvis(this.collegue, avis);
+    this.likeActif = this._data.disableButtons(this.collegue, "like");
+    this.unlikeActif = this._data.disableButtons(this.collegue, "unlike");
   }
 }
