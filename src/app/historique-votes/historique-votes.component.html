@@ -1,7 +1,16 @@
-<div *ngFor="let vote of _data.listerVotes()">
-  <img id="histPhoto" src={{vote.collegue.photoURL}}>
-  {{vote.collegue.pseudo}}
-  <span *ngIf="vote.avis == 0">Il est aimé, score : {{vote.collegue.score}}</span>
-  <span *ngIf="vote.avis == 1">Il est détesté, score : {{vote.collegue.score}}</span>
-  <button>Supprimer</button>
+<div id="hist">
+  <div class="histSection" *ngFor="let vote of _data.listerVotes(); index as i">
+    <div>
+      <img class="histPhoto" src={{vote.collegue.photoURL}}>
+    </div>
+    <div class="histContent">
+      <div>
+        {{vote.collegue.pseudo}}
+        <span varDir score={{vote.collegue.score}} avis={{vote.avis}}></span>
+      </div>
+      <div>
+        <button (click)=deleteElement(i)>Supprimer</button>
+      </div>
+    </div>
+  </div>
 </div>

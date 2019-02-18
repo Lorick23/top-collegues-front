@@ -10,6 +10,7 @@ import { ListeColleguesComponentComponent } from './liste-collegues-component/li
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { ScorePipe } from './pipes/score.pipe';
 import { HistoriqueVotesComponent } from './historique-votes/historique-votes.component';
+import { VarDirectiveDirective } from './var-directive.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HistoriqueVotesComponent } from './historique-votes/historique-votes.co
     ListeColleguesComponentComponent,
     AcceuilComponent,
     ScorePipe,
-    HistoriqueVotesComponent
+    HistoriqueVotesComponent,
+    VarDirectiveDirective
   ],
   imports: [
     BrowserModule,

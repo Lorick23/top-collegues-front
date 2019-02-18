@@ -13,4 +13,8 @@ export class HistoriqueVotesComponent implements OnInit {
   ngOnInit() {
   }
 
+  deleteElement(index:number){
+    this._data.deleteVote(index);
+  }
+
 }

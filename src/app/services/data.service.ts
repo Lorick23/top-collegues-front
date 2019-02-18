@@ -9,7 +9,7 @@ export class DataService {
   private listeCollegues: Collegue[] = [
     {
       photoURL: "https://images.unsplash.com/photo-1533075377664-f5c0cbc5a91c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
-      score: 0,
+      score: 1,
       pseudo: "DéDé"
     },
     {
@@ -24,7 +24,7 @@ export class DataService {
     },
     {
       photoURL: "http://images6.fanpop.com/image/photos/39300000/Guts-berserk-manga-39375299-197-188.jpg",
-      score: 0,
+      score: -1,
       pseudo: "Guts"
     },
     {
@@ -44,14 +44,15 @@ export class DataService {
     }
   ];
   private listeVotes: Vote[] = [
-    { collegue: this.listeCollegues[0],
-      avis : Avis.AIMER
+    {
+      collegue: this.listeCollegues[0],
+      avis: Avis.AIMER
     },
-    { collegue: this.listeCollegues[3],
-      avis : Avis.DéTESTER
+    {
+      collegue: this.listeCollegues[3],
+      avis: Avis.DéTESTER
     }
   ];
-
 
   constructor() { }
 
@@ -63,19 +64,24 @@ export class DataService {
     return this.listeVotes;
   }
 
+  deleteVote(index: number) {
+    this.listeVotes.splice(index, 1);
+  }
+
   donnerUnAvis(collegue: Collegue, avis: Avis): Collegue {
     if (avis == Avis.AIMER) {
       collegue.score++;
     } else if (avis == Avis.DéTESTER) {
       collegue.score--;
     }
+    this.listeVotes.push({ collegue, avis })
     return collegue;
   }
 
-  disableButtons(collegue: Collegue, cases:string):boolean{
-    if(cases == "like"){
+  disableButtons(collegue: Collegue, cases: string): boolean {
+    if (cases == "like") {
       return collegue.score < 10;
-    }else{
+    } else {
       return collegue.score > -10;
     }
   }

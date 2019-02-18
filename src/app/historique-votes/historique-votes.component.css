@@ -1,4 +1,18 @@
-:host #histPhoto {
+:host #hist{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+:host .histSection{
+    display: flex;
+}
+
+:host .histContent{
+    margin-top: .5rem;
+    margin-left: 2rem;
+}
+
+:host img {
     width: 5rem;
     height: 5rem;
 }
