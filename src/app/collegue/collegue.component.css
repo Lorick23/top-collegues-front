@@ -1,5 +1,6 @@
 :host #photo{
-    width: 16rem;
+    width: 15rem;
+    height: 15rem;
 }
 
 :host .bloc{

@@ -1,0 +1,9 @@
+:host #buttons{
+    background-color: red;
+    display: flex;
+    justify-content: center;
+}
+
+:host #buttonItem button{
+    width:5rem;
+}

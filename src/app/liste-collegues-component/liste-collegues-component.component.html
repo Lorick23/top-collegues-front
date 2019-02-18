@@ -1,3 +1,5 @@
-<div *ngFor="let col of collegues | slice:sliceStart:sliceEnd">
-  <app-collegue [collegue]="col"></app-collegue>
+<div class="row">
+  <span class="col-sm-4" *ngFor="let col of collegues | slice:sliceStart:sliceEnd">
+    <app-collegue [collegue]="col"></app-collegue>
+  </span>
 </div>

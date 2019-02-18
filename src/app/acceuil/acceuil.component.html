@@ -1,5 +1,7 @@
 <button>Refresh</button>
 <app-liste-collegues-component [collegues]="collegues" [pageIndex]="pageIndex"></app-liste-collegues-component>
-<span *ngFor="let int of pages">
-    <button (click)="changePage(int)">{{int}}</button>
-</span>
+<div id="buttons">
+    <span id="buttonItem" *ngFor="let int of pages">
+        <button (click)="changePage(int)">{{int}}</button>
+    </span>
+</div>
