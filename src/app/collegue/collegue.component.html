@@ -2,7 +2,7 @@
   <p>
     <img id="photo" src={{collegue.photoURL}}>
   </p>
-  <div>{{collegue.pseudo}}</div>
-  <div>{{collegue.score}}</div>
+  <div>{{collegue.pseudo | uppercase}}</div>
+  <div>{{collegue.score | score}}</div>
   <app-avis (avis)="onVoted($event)" [btnLike]="likeActif" [btnUnlike]="unlikeActif"></app-avis>
 </div>

@@ -9,8 +9,8 @@ import { Avis } from '../models';
 export class AvisComponent implements OnInit {
 
   @Output() avis: EventEmitter<Avis> = new EventEmitter<Avis>();
-  @Input() btnLike : true;
-  @Input() btnUnlike :true;
+  @Input() btnLike = true;
+  @Input() btnUnlike = true;
 
   constructor() {}
 
