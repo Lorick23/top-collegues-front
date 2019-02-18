@@ -15,7 +15,9 @@ export class CollegueComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.disableButtons();
+  }
 
   onVoted(avis: Avis) {
     if (avis == Avis.AIMER) {
@@ -23,6 +25,10 @@ export class CollegueComponent implements OnInit {
     } else if (avis == Avis.DéTESTER) {
       this.collegue.score--;
     }
+    this.disableButtons();
+  }
+
+  disableButtons(){
     this.likeActif = this.collegue.score < 10;
     this.unlikeActif = this.collegue.score > -10;
   }

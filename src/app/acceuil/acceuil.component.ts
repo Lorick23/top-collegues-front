@@ -7,10 +7,6 @@ import { Collegue } from '../models';
   styleUrls: ['./acceuil.component.css']
 })
 
-// Modifier le composant AppComponent pour qu'il affiche désormais
-// (uniquement) le composant AccueilComponent.
-// A ce stade, AccueilComponent fonctionne avec des données fictives
-// et le bouton rafraichir ne produit aucune action.
 export class AcceuilComponent implements OnInit {
 
   collegues: Collegue[] = new Array<Collegue>();
@@ -60,9 +56,6 @@ export class AcceuilComponent implements OnInit {
     for(let i:number=0; i < this.collegues.length/3; i++){
       this.pages[i]=i+1;
     }
-    // for(let i of this.pages){
-    //   console.log(i);
-    // }
   }
 
   changePage(page: number) {
