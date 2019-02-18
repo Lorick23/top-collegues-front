@@ -1,4 +1,4 @@
 <p>
-  <button id="like" class="btn btn-primary" (click)="like()">J'aime !</button>
-  <button id="unlike" (click)="unlike()" class="btn btn-danger">Je déteste !</button>
+  <button class="btn btn-primary" (click)="like()" [disabled]="!btnLike">J'aime !</button>
+  <button class="btn btn-danger" (click)="unlike()" [disabled]="!btnUnlike">Je déteste !</button>
 </p>
