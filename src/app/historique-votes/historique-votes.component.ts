@@ -8,10 +8,9 @@ import { DataService } from '../services/data.service';
 })
 export class HistoriqueVotesComponent implements OnInit {
 
-  constructor(private _data:DataService) { }
+  constructor(public _data:DataService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   deleteElement(index:number){
     this._data.deleteVote(index);

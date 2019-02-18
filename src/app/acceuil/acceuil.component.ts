@@ -13,7 +13,7 @@ export class AcceuilComponent implements OnInit {
   pageIndex: number = 0;
   pages:number[] = new Array<number>();
 
-  constructor(private _data:DataService) {  }
+  constructor(public _data:DataService) {  }
 
   ngOnInit() {
     for(let i:number=0; i < this._data.lister().length/3; i++){
