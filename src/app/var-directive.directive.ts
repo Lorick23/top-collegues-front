@@ -13,9 +13,9 @@ export class VarDirectiveDirective {
 
   ngOnInit() {
     if (this.avis == Avis.AIMER) {
-      this.el.nativeElement.innerHTML = ` a reçu un Bonus, score : ${this.score}`;
+      this.el.nativeElement.innerHTML = ` a reçu un Bonus<br /> score : ${this.score}`;
     } else {
-      this.el.nativeElement.innerHTML = ` a reçu un Malus, score : ${this.score}`;
+      this.el.nativeElement.innerHTML = ` a reçu un Malus<br /> score : ${this.score}`;
     }
   }
 
