@@ -5,18 +5,35 @@
 
 :host .histSection{
     display: flex;
+    border-style: dashed;
 }
 
 :host .histContent{
-    margin-top: .5rem;
-    margin-left: 2rem;
+    margin-top: .2rem;
+    margin-left: 1rem;
 }
 
 :host img {
-    width: 6rem;
-    height: 6rem;
+    width: 6.5rem;
+    height: 6.5rem;
+}
+
+:host #fewWords{
+    font-size: 1rem;
+}
+
+:host #deleteBtn{
+    font-size: .9rem;
 }
 
 :host .silver{
     background-color: silver;
+}
+
+:host .grey{
+    background-color: grey;
+}
+
+:host .blue{
+    background-color: aqua;
 }

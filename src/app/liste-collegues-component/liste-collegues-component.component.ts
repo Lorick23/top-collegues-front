@@ -26,8 +26,7 @@ export class ListeColleguesComponentComponent implements OnInit {
   ngOnInit() {
     this._data.lister().subscribe(
       value => this.collegues = value,
-      error => console.log(error),
-      () => console.log('terminé'));
+      error => console.log(error));
   }
 
   calculSlice(pageIndex: number) {

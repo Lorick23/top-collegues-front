@@ -1,15 +1,15 @@
-<div id="hist" class="silver">
-  <div class="histSection" *ngFor="let vote of votes; index as i">
+<div id="hist">
+  <div *ngFor="let vote of votes; index as i" class="histSection" id="histSection{{i}}">
     <div>
       <img class="histPhoto" src={{vote.collegue.photoURL}}>
     </div>
     <div class="histContent">
       <div>
         {{vote.collegue.pseudo}}
-        <span varDir score={{vote.collegue.score}} avis={{vote.avis}}></span>
+        <div id="fewWords" varDir score={{vote.collegue.score}} avis={{vote.avis}}></div>
       </div>
       <div>
-        <button (click)=deleteElement(i)>Supprimer</button>
+        <button id="deleteBtn" (click)=deleteElement(i)>Supprimer</button>
       </div>
     </div>
   </div>

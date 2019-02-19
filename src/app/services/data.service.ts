@@ -17,7 +17,7 @@ export class DataService {
   private listeCollegues: Collegue[] = [
     {
       photoURL: "http://media.topito.com/wp-content/uploads/2015/01/kim-jong-un-pop-culture-17.jpg",
-      score: 1,
+      score: 0,
       pseudo: "Batman"
     },
     {
@@ -32,7 +32,7 @@ export class DataService {
     },
     {
       photoURL: "http://artjuice.net/wp-content/uploads/2015/01/kim-jong-un-pop-culture-butcher-billy-20.jpg",
-      score: -1,
+      score: 0,
       pseudo: "Kirby"
     },
     {

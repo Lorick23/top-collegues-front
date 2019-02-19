@@ -14,8 +14,9 @@ export class VoteCountComponent implements OnInit {
   constructor(private _data: DataService) { }
 
   ngOnInit() {
-    this.vote = JSON.parse(localStorage.getItem("voteCount"));
-
+    if(localStorage.getItem("voteCount") != null){
+      this.vote = JSON.parse(localStorage.getItem("voteCount"));
+    }
     this._data.vote.subscribe(
       value => {
         this.vote.push(value);
