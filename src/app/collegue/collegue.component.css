@@ -13,3 +13,19 @@
     border-color: red;
     height: 80vh;
 }
+
+:host .yellow{
+    background-color: navajowhite;
+}
+
+:host .red{
+    background-color: crimson;
+}
+
+:host .orange{
+    background-color: coral;
+}
+
+:host .green{
+    background-color: yellowgreen;
+}

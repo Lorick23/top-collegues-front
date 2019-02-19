@@ -1,7 +1,10 @@
 <div id="content">
+    <div>
+        <app-vote-count></app-vote-count>
+    </div>
     <div id="collegueBoard">
         <button (click)="refresh()">Refresh</button>
-        <app-liste-collegues-component [collegues]="_data.lister()" [pageIndex]="pageIndex"></app-liste-collegues-component>
+        <app-liste-collegues-component [pageIndex]="pageIndex"></app-liste-collegues-component>
         <div id="buttons">
             <span id="buttonItem" *ngFor="let int of pages">
                 <button (click)="changePage(int)">{{int}}</button>

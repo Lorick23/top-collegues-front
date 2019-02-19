@@ -11,6 +11,7 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 import { ScorePipe } from './pipes/score.pipe';
 import { HistoriqueVotesComponent } from './historique-votes/historique-votes.component';
 import { VarDirectiveDirective } from './var-directive.directive';
+import { VoteCountComponent } from './vote-count/vote-count.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { VarDirectiveDirective } from './var-directive.directive';
     AcceuilComponent,
     ScorePipe,
     HistoriqueVotesComponent,
-    VarDirectiveDirective
+    VarDirectiveDirective,
+    VoteCountComponent
   ],
   imports: [
     BrowserModule,

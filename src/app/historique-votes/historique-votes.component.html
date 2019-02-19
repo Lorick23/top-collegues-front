@@ -1,5 +1,5 @@
-<div id="hist">
-  <div class="histSection" *ngFor="let vote of _data.listerVotes(); index as i">
+<div id="hist" class="silver">
+  <div class="histSection" *ngFor="let vote of votes; index as i">
     <div>
       <img class="histPhoto" src={{vote.collegue.photoURL}}>
     </div>

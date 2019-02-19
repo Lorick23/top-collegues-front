@@ -11,25 +11,29 @@ import { DataService } from '../services/data.service';
 export class AcceuilComponent implements OnInit {
 
   pageIndex: number = 0;
-  pages:number[] = new Array<number>();
+  pages: number[] = new Array<number>();
 
-  constructor(public _data:DataService) {  }
+  constructor(public _data: DataService) { }
 
   ngOnInit() {
-    for(let i:number=0; i < this._data.lister().length/3; i++){
-      this.pages[i]=i+1;
-    }
+    this._data.lister().subscribe(
+      value => {
+        for (let i: number = 0; i < value.length / 3; i++) {
+          this.pages[i] = i + 1;
+        }
+      },
+      error => console.log(error));
   }
 
   changePage(page: number) {
-    this.pageIndex = page-1;
+    this.pageIndex = page - 1;
   }
 
   onItemSelector() {
 
   }
 
-  refresh(){
+  refresh() {
     window.location.reload();
   }
 

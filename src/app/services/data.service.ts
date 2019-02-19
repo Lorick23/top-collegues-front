@@ -1,11 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Collegue, Avis, Vote } from '../models';
 import { templateJitUrl } from '@angular/compiler';
+import { Subject, Observable, from, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+  
+  private voteSubject = new Subject<Vote>();
+
+  get vote():Observable<Vote>{
+    return this.voteSubject.asObservable();
+  }
+
   private listeCollegues: Collegue[] = [
     {
       photoURL: "http://media.topito.com/wp-content/uploads/2015/01/kim-jong-un-pop-culture-17.jpg",
@@ -77,41 +85,22 @@ export class DataService {
       score: 0,
       pseudo: "Einseinberg"
     }
-    
-  ];
-  private listeVotes: Vote[] = [
-    {
-      collegue: this.listeCollegues[0],
-      avis: Avis.AIMER
-    },
-    {
-      collegue: this.listeCollegues[3],
-      avis: Avis.DéTESTER
-    }
   ];
 
   constructor() { }
 
-  lister(): Collegue[] {
-    return this.listeCollegues;
+  lister(): Observable<Collegue[]> {
+    return of(this.listeCollegues);
   }
 
-  listerVotes(): Vote[] {
-    return this.listeVotes;
-  }
-
-  deleteVote(index: number) {
-    this.listeVotes.splice(index, 1);
-  }
-
-  donnerUnAvis(collegue: Collegue, avis: Avis): Collegue {
+  donnerUnAvis(collegue: Collegue, avis: Avis): Observable<Collegue> {
     if (avis == Avis.AIMER) {
       collegue.score++;
     } else if (avis == Avis.DéTESTER) {
       collegue.score--;
     }
-    this.listeVotes.push({collegue, avis})
-    return collegue;
+    this.voteSubject.next({collegue, avis});
+    return of(collegue);
   }
 
   disableButtons(collegue: Collegue, cases: string): boolean {
