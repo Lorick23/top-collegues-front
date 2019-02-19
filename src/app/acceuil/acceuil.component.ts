@@ -29,4 +29,8 @@ export class AcceuilComponent implements OnInit {
 
   }
 
+  refresh(){
+    window.location.reload();
+  }
+
 }

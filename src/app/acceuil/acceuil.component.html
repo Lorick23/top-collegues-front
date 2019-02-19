@@ -1,6 +1,6 @@
 <div id="content">
     <div id="collegueBoard">
-        <button>Refresh</button>
+        <button (click)="refresh()">Refresh</button>
         <app-liste-collegues-component [collegues]="_data.lister()" [pageIndex]="pageIndex"></app-liste-collegues-component>
         <div id="buttons">
             <span id="buttonItem" *ngFor="let int of pages">

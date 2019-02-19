@@ -1,6 +1,7 @@
 :host #photo{
     width: 15rem;
     height: 15rem;
+    margin-top: 5vh;
 }
 
 :host .bloc{
@@ -8,4 +9,7 @@
     flex-direction: column;
     align-items: center;
     font-size: 3rem;
+    border-style: solid;
+    border-color: red;
+    height: 80vh;
 }

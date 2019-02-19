@@ -8,9 +8,9 @@ import { templateJitUrl } from '@angular/compiler';
 export class DataService {
   private listeCollegues: Collegue[] = [
     {
-      photoURL: "https://images.unsplash.com/photo-1533075377664-f5c0cbc5a91c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+      photoURL: "http://media.topito.com/wp-content/uploads/2015/01/kim-jong-un-pop-culture-17.jpg",
       score: 1,
-      pseudo: "DéDé"
+      pseudo: "Batman"
     },
     {
       photoURL: "https://www.espacebuzz.com/assets/ckeditor/2015/jan/2317/originale/740_espacebuzz54ae61b2dceb9.jpg",
@@ -18,30 +18,66 @@ export class DataService {
       pseudo: "SonGoku"
     },
     {
-      photoURL: "https://i.pinimg.com/236x/46/8a/5a/468a5a4ff18bdd1acfbf61475e47281f--monkey-d-luffy-one-piece.jpg?b=t",
+      photoURL: "http://media.topito.com/wp-content/uploads/2015/01/kim-jong-un-pop-culture-2.jpg",
       score: 0,
-      pseudo: "Luffy"
+      pseudo: "Mario"
     },
     {
-      photoURL: "http://images6.fanpop.com/image/photos/39300000/Guts-berserk-manga-39375299-197-188.jpg",
+      photoURL: "http://artjuice.net/wp-content/uploads/2015/01/kim-jong-un-pop-culture-butcher-billy-20.jpg",
       score: -1,
-      pseudo: "Guts"
+      pseudo: "Kirby"
     },
     {
-      photoURL: "https://vignette.wikia.nocookie.net/blame/images/b/be/Killy.png/revision/latest?cb=20170420234907",
+      photoURL: "http://media.topito.com/wp-content/uploads/2015/01/kim-jong-un-pop-culture-3.jpg",
       score: 0,
-      pseudo: "Killy"
+      pseudo: "Ronald Mc Donald"
     },
     {
-      photoURL: "http://www.stars-portraits.com/img/portraits/stars/z/zinedine-zidane/zinedine-zidane-by-Beesiak[203350].jpg",
+      photoURL: "http://media.topito.com/wp-content/uploads/2015/01/kim-jong-un-pop-culture-14.jpg",
       score: 0,
-      pseudo: "Zizou"
+      pseudo: "Teenky Winky"
     },
     {
-      photoURL: "https://cdn.staticneo.com/w/finalfantasy/thumb/f/f7/Kefka3.jpg/160px-Kefka3.jpg",
+      photoURL: "http://media.topito.com/wp-content/uploads/2015/01/kim-jong-un-pop-culture-26.jpg",
       score: 0,
-      pseudo: "Kefka"
+      pseudo: "Bart"
+    },
+    {
+      photoURL: "https://artjuice.net/wp-content/uploads/2015/01/kim-jong-un-pop-culture-butcher-billy-1.jpg",
+      score: 0,
+      pseudo: "Pikachu"
+    },
+    {
+      photoURL: "http://media.topito.com/wp-content/uploads/2015/01/kim-jong-un-pop-culture-22.jpg",
+      score: 0,
+      pseudo: "HellBoy"
+    },
+    {
+      photoURL: "http://media.topito.com/wp-content/uploads/2015/01/kim-jong-un-pop-culture-18.jpg",
+      score: 0,
+      pseudo: "Hulk"
+    },
+    {
+      photoURL: "http://media.topito.com/wp-content/uploads/2015/01/81efd81fc769fcf88595dfc1d3054ec5.png",
+      score: 0,
+      pseudo: "Octopus"
+    },
+    {
+      photoURL: "http://media.topito.com/wp-content/uploads/2015/01/kim-jong-un-pop-culture-25.jpg",
+      score: 0,
+      pseudo: "Captain America"
+    },
+    {
+      photoURL: "http://media.topito.com/wp-content/uploads/2015/01/kim-jong-un-pop-culture-25.jpg",
+      score: 0,
+      pseudo: "Captain America"
+    },
+    {
+      photoURL: "http://media.topito.com/wp-content/uploads/2015/01/kim-jong-un-pop-culture-9.jpg",
+      score: 0,
+      pseudo: "Einseinberg"
     }
+    
   ];
   private listeVotes: Vote[] = [
     {
@@ -74,7 +110,7 @@ export class DataService {
     } else if (avis == Avis.DéTESTER) {
       collegue.score--;
     }
-    this.listeVotes.push({ collegue, avis })
+    this.listeVotes.push({collegue, avis})
     return collegue;
   }
 

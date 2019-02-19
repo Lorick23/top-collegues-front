@@ -21,4 +21,6 @@
     overflow: scroll;
     border-style: solid;
     border-color: black;
+    margin-left: 1.5rem;
+    width: 25%;
 }
