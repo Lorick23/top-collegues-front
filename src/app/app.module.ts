@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BonjourComponent } from './bonjour/bonjour.component';
 import { AvisComponent } from './avis/avis.component';
@@ -28,7 +28,8 @@ import { VoteCountComponent } from './vote-count/vote-count.component';
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

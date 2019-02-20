@@ -1,16 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { Collegue, Avis, Vote } from '../models';
-import { templateJitUrl } from '@angular/compiler';
 import { Subject, Observable, from, of } from 'rxjs';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+
+const URL_BACKEND = environment.backendUrl;
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  
+
   private voteSubject = new Subject<Vote>();
 
-  get vote():Observable<Vote>{
+  get vote(): Observable<Vote> {
     return this.voteSubject.asObservable();
   }
 
@@ -87,9 +90,11 @@ export class DataService {
     }
   ];
 
-  constructor() { }
+  constructor(private _http: HttpClient) {
+  }
 
   lister(): Observable<Collegue[]> {
+
     return of(this.listeCollegues);
   }
 
@@ -99,7 +104,7 @@ export class DataService {
     } else if (avis == Avis.DéTESTER) {
       collegue.score--;
     }
-    this.voteSubject.next({collegue, avis});
+    this.voteSubject.next({ collegue, avis });
     return of(collegue);
   }
 
