@@ -12,6 +12,8 @@ import { ScorePipe } from './pipes/score.pipe';
 import { HistoriqueVotesComponent } from './historique-votes/historique-votes.component';
 import { VarDirectiveDirective } from './var-directive.directive';
 import { VoteCountComponent } from './vote-count/vote-count.component';
+import { NouveauCollegueTemplateFormComponent } from './nouveau-collegue-template-form/nouveau-collegue-template-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,14 @@ import { VoteCountComponent } from './vote-count/vote-count.component';
     ScorePipe,
     HistoriqueVotesComponent,
     VarDirectiveDirective,
-    VoteCountComponent
+    VoteCountComponent,
+    NouveauCollegueTemplateFormComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

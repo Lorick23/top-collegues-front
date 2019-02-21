@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, SystemJsNgModuleLoader } from '@angular/core';
 import { Collegue, Avis, Vote } from '../models';
 import { Subject, Observable, of } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
@@ -135,6 +135,11 @@ export class DataService {
           })
         );
     }
+  }
+
+  addCollegue(matricule:string){
+    console.log("addcoll")
+    return this._http.post(URL_BACKEND + "/collegues", {"matricule" : matricule}, httpOptions);
   }
 
   refresh(): Observable<Collegue[]> {
