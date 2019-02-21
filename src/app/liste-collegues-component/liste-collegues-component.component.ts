@@ -8,25 +8,54 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./liste-collegues-component.component.css']
 })
 
-//Créer un composant ListeColleguesComponent qui, à partir d'une liste d'objets collègues, produit l'affichage suivant :
 export class ListeColleguesComponentComponent implements OnInit {
 
-  //@Input() collegues: Collegue[];
-  collegues: Collegue[];
+  @Input() collegues: Collegue[];
   @Input() pageIndex: number = 0;
   sliceStart = 0;
   sliceEnd = 3;
 
-  constructor(private _data:DataService) { }
+  constructor(private _data: DataService) { }
 
   ngOnChanges() {
     this.calculSlice(this.pageIndex);
   }
 
   ngOnInit() {
+    // this._data.refreshSub.subscribe(
+    //   value => {
+    //     this._data.lister().subscribe(
+    //       value => {
+    //         value.sort((a, b) => {
+    //           if (a.pseudo > b.pseudo) {
+    //             return 1;
+    //           } else if (a.pseudo < b.pseudo) {
+    //             return -1;
+    //           } else {
+    //             return 0;
+    //           }
+    //         });
+    //         this.collegues = value
+    //       },
+    //       error => console.log(error));
+    //   }
+    // )
+    
     this._data.lister().subscribe(
-      value => this.collegues = value,
+      value => {
+        value.sort((a, b) => {
+          if (a.pseudo > b.pseudo) {
+            return 1;
+          } else if (a.pseudo < b.pseudo) {
+            return -1;
+          } else {
+            return 0;
+          }
+        });
+        this.collegues = value
+      },
       error => console.log(error));
+
   }
 
   calculSlice(pageIndex: number) {

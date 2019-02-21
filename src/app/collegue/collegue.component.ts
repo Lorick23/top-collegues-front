@@ -14,15 +14,18 @@ export class CollegueComponent implements OnInit {
   likeActif = true;
   unlikeActif = true;
 
-  constructor(private _data:DataService) { }
+  constructor(private _data: DataService) { }
 
   ngOnInit() {
+
     this.likeActif = this._data.disableButtons(this.collegue, "like");
     this.unlikeActif = this._data.disableButtons(this.collegue, "unlike");
   }
 
   onVoted(avis: Avis) {
-    this._data.donnerUnAvis(this.collegue, avis);
+    this._data.donnerUnAvis(this.collegue, avis).subscribe(
+      value => this.collegue = value
+    );
     this.likeActif = this._data.disableButtons(this.collegue, "like");
     this.unlikeActif = this._data.disableButtons(this.collegue, "unlike");
   }
