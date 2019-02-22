@@ -17,7 +17,6 @@ export class CollegueComponent implements OnInit {
   constructor(private _data: DataService) { }
 
   ngOnInit() {
-
     this.likeActif = this._data.disableButtons(this.collegue, "like");
     this.unlikeActif = this._data.disableButtons(this.collegue, "unlike");
   }
