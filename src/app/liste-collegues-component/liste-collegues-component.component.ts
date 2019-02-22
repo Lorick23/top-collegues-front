@@ -22,24 +22,6 @@ export class ListeColleguesComponentComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this._data.refreshSub.subscribe(
-    //   value => {
-    //     this._data.lister().subscribe(
-    //       value => {
-    //         value.sort((a, b) => {
-    //           if (a.pseudo > b.pseudo) {
-    //             return 1;
-    //           } else if (a.pseudo < b.pseudo) {
-    //             return -1;
-    //           } else {
-    //             return 0;
-    //           }
-    //         });
-    //         this.collegues = value
-    //       },
-    //       error => console.log(error));
-    //   }
-    // )
     
     this._data.lister().subscribe(
       value => {

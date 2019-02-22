@@ -45,6 +45,53 @@ export class DataService {
     return this.refreshSubject.asObservable();
   }
 
+  constructor(private _http: HttpClient) {
+  }
+
+  lister(): Observable<Collegue[]> {
+    if (this.listeCollegues.length > 0) {
+      return of(this.listeCollegues);
+    } else {
+      return this._http.get<CollegueServeur[]>(URL_BACKEND + "/collegues")
+        .pipe(
+          map(
+            colsServeur => colsServeur.map(colServeurToColIhm))
+          ,
+          tap(tab => {
+            this.listeCollegues = tab;
+          })
+        );
+    }
+  }
+
+  addCollegue(matricule: string, pseudo: string, photo: string) {
+    return this._http.post(URL_BACKEND + "/collegues", { "matricule": matricule, "pseudo": pseudo, "photo": photo }, httpOptions);
+  }
+
+  refresh(): Observable<Collegue[]> {
+    this.listeCollegues = [];
+    return this.lister();
+  }
+
+  donnerUnAvis(collegue: Collegue, avis: Avis): Observable<Collegue> {
+
+    return this._http.patch<CollegueServeur>(URL_BACKEND + "/collegues/" + collegue.pseudo, { action: avis }, httpOptions)
+      .pipe(
+        map(colServeurToColIhm),
+        tap(col => {
+          this.voteSubject.next({ collegue: col, avis })
+        })
+      );
+  }
+
+  disableButtons(collegue: Collegue, cases: string): boolean {
+    if (cases == "like") {
+      return collegue.score < 10;
+    } else {
+      return collegue.score > -10;
+    }
+  }
+
   private listeCollegues: Collegue[] = [
     // {
     //   photoURL: "http://media.topito.com/wp-content/uploads/2015/01/kim-jong-un-pop-culture-17.jpg",
@@ -117,52 +164,4 @@ export class DataService {
     //   pseudo: "Einseinberg"
     // }
   ];
-
-  constructor(private _http: HttpClient) {
-  }
-
-  lister(): Observable<Collegue[]> {
-    if (this.listeCollegues.length > 0) {
-      return of(this.listeCollegues);
-    } else {
-      return this._http.get<CollegueServeur[]>(URL_BACKEND + "/collegues")
-        .pipe(
-          map(
-            colsServeur => colsServeur.map(colServeurToColIhm))
-          ,
-          tap(tab => {
-            this.listeCollegues = tab;
-          })
-        );
-    }
-  }
-
-  addCollegue(matricule:string){
-    console.log("addcoll")
-    return this._http.post(URL_BACKEND + "/collegues", {"matricule" : matricule}, httpOptions);
-  }
-
-  refresh(): Observable<Collegue[]> {
-    this.listeCollegues = [];
-    return this.lister();
-  }
-
-  donnerUnAvis(collegue: Collegue, avis: Avis): Observable<Collegue> {
-
-    return this._http.patch<CollegueServeur>(URL_BACKEND + "/collegues/" + collegue.pseudo, { action: avis }, httpOptions)
-      .pipe(
-        map(colServeurToColIhm),
-        tap(col => {
-          this.voteSubject.next({ collegue:col, avis })
-        })
-      );
-  }
-
-  disableButtons(collegue: Collegue, cases: string): boolean {
-    if (cases == "like") {
-      return collegue.score < 10;
-    } else {
-      return collegue.score > -10;
-    }
-  }
 }

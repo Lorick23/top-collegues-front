@@ -1,0 +1,4 @@
+:host .link-active{
+    background-color: blue;
+    border-style: double;
+}

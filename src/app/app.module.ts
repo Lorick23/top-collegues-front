@@ -14,6 +14,9 @@ import { VarDirectiveDirective } from './var-directive.directive';
 import { VoteCountComponent } from './vote-count/vote-count.component';
 import { NouveauCollegueTemplateFormComponent } from './nouveau-collegue-template-form/nouveau-collegue-template-form.component';
 import { FormsModule } from '@angular/forms';
+import { MenuComponent } from './menu/menu.component';
+import { RouterModule } from '@angular/router';
+import { ROUTES } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -27,11 +30,13 @@ import { FormsModule } from '@angular/forms';
     HistoriqueVotesComponent,
     VarDirectiveDirective,
     VoteCountComponent,
-    NouveauCollegueTemplateFormComponent
+    NouveauCollegueTemplateFormComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
+    RouterModule.forRoot(ROUTES),
     HttpClientModule,
     FormsModule
   ],

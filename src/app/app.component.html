@@ -9,14 +9,20 @@
   <title>{{ title }}</title>
 </head>
 
+
+
 <body>
+  <div class="navbar navbar-expand-lg navbar-light bg-light">
+    <a routerLink="/acceuil" routerLinkActive="nav-link">Acceuil</a>
+    <a routerLink="/form" routerLinkActive="nav-link">Formulaire</a>
+  </div>
   <div style="text-align:center">
     <h1>
       Welcome to {{ title }} !
     </h1>
     Le site où tu notes des héros !
   </div>
-  <app-acceuil></app-acceuil>
+  <router-outlet></router-outlet>
 </body>
 
 </html>
