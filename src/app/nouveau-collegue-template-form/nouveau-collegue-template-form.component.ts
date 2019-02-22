@@ -12,6 +12,7 @@ export class NouveauCollegueTemplateFormComponent implements OnInit {
   matricule: string
   pseudo: string
   imgUrl: string
+  error: string
 
   constructor(private _data: DataService, private router: Router) { }
 
@@ -24,6 +25,9 @@ export class NouveauCollegueTemplateFormComponent implements OnInit {
       value => {
         this._data.refresh();
         this.router.navigate(['/acceuil'])
+      },
+      err => {
+        this.error = "Matricule non trouvé ou déjà présent dans l'appli, error : "+err
       }
     );
   }

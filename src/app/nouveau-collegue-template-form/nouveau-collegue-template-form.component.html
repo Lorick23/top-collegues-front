@@ -1,9 +1,13 @@
 <form>
+    <label class="col-form-label">Matricule</label>
   <input type="text" name="matricule" [(ngModel)]="matricule" #champ1="ngModel" required>
+  <label class="col-form-label">Pseudo</label>
   <input type="text" name="pseudo" [(ngModel)]="pseudo" #champ2="ngModel" required minlength="2">
+  <label class="col-form-label">Image</label>
   <input type="text" name="imgUrl" [(ngModel)]="imgUrl">
   <span *ngIf="champ1.valid && champ2.valid; else elseBlock">
     <button type="submit" (click)="addCollegue()">Valider</button>
   </span>
   <ng-template #elseBlock><button type="submit" disabled>Valider</button></ng-template>
 </form>
+<span>{{error}}</span>

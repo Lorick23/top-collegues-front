@@ -24,9 +24,11 @@ export class CollegueComponent implements OnInit {
 
   onVoted(avis: Avis) {
     this._data.donnerUnAvis(this.collegue, avis).subscribe(
-      value => this.collegue = value
+      value => {
+        this.collegue = value
+        this.likeActif = this._data.disableButtons(this.collegue, "like");
+        this.unlikeActif = this._data.disableButtons(this.collegue, "unlike");
+      }
     );
-    this.likeActif = this._data.disableButtons(this.collegue, "like");
-    this.unlikeActif = this._data.disableButtons(this.collegue, "unlike");
   }
 }
